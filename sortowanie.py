@@ -56,3 +56,31 @@ def merge_sort(lista):
       k += 1
  
   return lista
+  
+  
+def partition(Lista, low, high):
+    i = (low - 1)
+    pivot = Lista[high]
+
+    for j in range(low, high):
+ 
+        if Lista[j] <= pivot:
+            i = i + 1
+            Lista[i], Lista[j] = Lista[j], Lista[i]
+
+    Lista[i + 1], Lista[high] = Lista[high], Lista[i + 1]
+    return (i + 1)
+
+
+
+def quickSort(Lista, low, high):
+    if len(Lista) == 1:
+        return Lista
+    if low < high:
+
+        pi = partition(Lista, low, high)
+
+        quickSort(Lista, low, pi - 1)
+        quickSort(Lista, pi + 1, high)
+
+  
